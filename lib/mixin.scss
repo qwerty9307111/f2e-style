@@ -1,0 +1,176 @@
+@import "./var.scss";
+
+// 定位居中
+@mixin position-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin loading($size: 100px, $speed: 3s, $color: $primary-color, $line-weight: 7px, $background: white) {
+  $outer-line-weight: $line-weight * 2 + 1;
+
+  position: relative;
+  width: $size;
+  height: $size;
+  border-radius: 50%;
+  transform: rotate(360deg);
+  animation: rotate 45s infinite linear;
+
+  &::before {
+    position: absolute;
+    content: "";
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    box-sizing: border-box;
+    border-radius: 50%;
+    border-top: $line-weight solid $color;
+    border-left: $line-weight solid $color;
+    border-bottom: $line-weight solid transparent;
+    border-right: $line-weight solid transparent;
+    transform: rotate(720deg);
+    animation: rotate $speed infinite ease-out;
+  }
+
+  &::after {
+    position: absolute;
+    content: "";
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    box-sizing: border-box;
+    border-radius: 50%;
+    border-bottom: $outer-line-weight solid transparent;
+    border-right: $outer-line-weight solid transparent;
+    border-top: $outer-line-weight solid $background;
+    border-left: $outer-line-weight solid $background;
+    transform: rotate(720deg);
+    animation: rotate $speed infinite ease-in-out;
+  }
+
+  @keyframes rotate {
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+}
+
+// 滚动条
+@mixin scroll-bar($size: 8px, $color: $primary-color, $background: #ededed, $radius: $size, $shadow-color: $shadow-color) {
+  &::-webkit-scrollbar {
+    width: $size;
+    height: $size;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: $radius;
+    background-color: $color;
+  }
+
+  &::-webkit-scrollbar-track {
+    border-radius: $size;
+    background: $background;
+    box-shadow: inset 0 0 $size $shadow-color;
+  }
+}
+
+// 卡券
+@mixin coupon($width: 300px, $height: 100px, $circle-size: 10px, $background: white, $shadow-size: 2px, $shadow-color: $shadow-color) {
+  $half-height: $height / 2 + 1;
+  width: $width;
+  height: $height;
+  position: relative;
+  background: radial-gradient(circle at right bottom, transparent $circle-size, $background 0) top right /50% $half-height no-repeat,
+    radial-gradient(circle at left bottom, transparent $circle-size, $background 0) top left / 50% $half-height no-repeat,
+    radial-gradient(circle at right top, transparent $circle-size, $background 0) bottom right / 50% $half-height no-repeat,
+    radial-gradient(circle at left top, transparent $circle-size, $background 0) bottom left / 50% $half-height no-repeat;
+  filter: drop-shadow($shadow-size $shadow-size $shadow-size $shadow-color);
+}
+
+// 三角形
+@mixin triangle($border_width: 0 25px 40px 25px, $border_color: transparent transparent $shadow-color transparent) {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: $border_width;
+  border-color: $border_color;
+}
+
+// 虚线边框
+@mixin dotted($border_size: 1px, $border_color: #ccc, $back_color: white, $dashed_length: .25em, $dashed_interval: .75em) {
+  border: $border_size dashed transparent;
+  background: linear-gradient($back_color, $back_color) padding-box, repeating-linear-gradient(-45deg, $border_color 0, $border_color $dashed_length, $back_color 0, $back_color $dashed_interval);
+}
+
+@mixin border($border-color: $lighter-gray, $border-size: 1px) {
+  position: relative;
+
+  &:after {
+    position: absolute;
+    box-sizing: border-box;
+    content: ' ';
+    pointer-events: none;
+    top: -50%;
+    right: -50%;
+    bottom: -50%;
+    left: -50%;
+    border: $border-size solid $border-color;
+    transform: scale(0.5);
+  }
+}
+
+@mixin border-bottom-1px($border-color: $lighter-gray) {
+  position: relative;
+  overflow: hidden;
+
+  &:after {
+    position: absolute;
+    box-sizing: border-box;
+    content: ' ';
+    pointer-events: none;
+    top: -50%;
+    right: -100%;
+    bottom: -50%;
+    left: -100%;
+    border: 1px solid $border-color;
+    transform: scale(0.5);
+  }
+}
+
+// 彩色渐变分割线
+@mixin color-hr($height: 2px, $back-size: 80px) {
+  position: relative;
+
+  &:before {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: $height;
+    background: repeating-linear-gradient(-45deg, #ff6c6c 0, #ff6c6c 20%, transparent 0, transparent 25%, #1989fa 0, #1989fa 45%, transparent 0, transparent 50%);
+    background-size: $back-size;
+  }
+}
+
+// 单行文本超出隐藏
+@mixin single-ellipsis($width: inherit) {
+  width: $width;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// 多行文本超出隐藏
+@mixin multi-ellipsis($lines: 2) {
+  display: -webkit-box;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $lines;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

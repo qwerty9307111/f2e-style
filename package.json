@@ -1,0 +1,19 @@
+{
+  "name": "f2e-style",
+  "version": "0.0.1",
+  "description": "",
+  "main": "lib/index.scss",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qwerty9307111/f2e-style.git"
+  },
+  "author": "YinWenwu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/qwerty9307111/f2e-style/issues"
+  },
+  "homepage": "https://github.com/qwerty9307111/-style#readme"
+}

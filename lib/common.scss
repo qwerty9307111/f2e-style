@@ -1,0 +1,195 @@
+@import "./var.scss";
+
+@each $num in $num_array {
+  .m-#{$num} {
+    margin: #{$num}px;
+  }
+
+  .mt-#{$num} {
+    margin-top: #{$num}px;
+  }
+
+  .ml-#{$num} {
+    margin-left: #{$num}px;
+  }
+
+  .mb-#{$num} {
+    margin-bottom: #{$num}px;
+  }
+
+  .mr-#{$num} {
+    margin-right: #{$num}px;
+  }
+
+  .p-#{$num} {
+    box-sizing: border-box;
+    padding: #{$num}px;
+  }
+
+  .pt-#{$num} {
+    box-sizing: border-box;
+    padding-top: #{$num}px;
+  }
+
+  .pl-#{$num} {
+    box-sizing: border-box;
+    padding-left: #{$num}px;
+  }
+
+  .pb-#{$num} {
+    box-sizing: border-box;
+    padding-bottom: #{$num}px;
+  }
+
+  .pr-#{$num} {
+    box-sizing: border-box;
+    padding-right: #{$num}px;
+  }
+}
+
+%ios-touch {
+  -webkit-overflow-scrolling: touch;
+}
+
+.ma {
+  margin: {
+    right: auto;
+    left: auto;
+  }
+}
+
+.relative {
+  position: relative;
+}
+
+.border-box {
+  box-sizing: border-box;
+}
+
+.c-gray {
+  color: $gray;
+}
+
+.c-lighter-gray {
+  color: $lighter-gray;
+}
+
+.c-white {
+  color: white;
+}
+
+.c-placeholder {
+  color: $placeholder-gray;
+}
+
+.c-orange {
+  color: $orange;
+}
+
+.c-black {
+  color: $black;
+}
+
+.c-blue {
+  color: $blue;
+}
+
+.c-red {
+  color: $red;
+}
+
+.c-green {
+  color: $green;
+}
+
+.b-gray {
+  background-color: $gray;
+}
+
+.b-lighter-gray {
+  background-color: $lighter-gray;
+}
+
+.b-white {
+  background-color: white;
+}
+
+.b-placeholder {
+  background-color: $placeholder-gray;
+}
+
+.b-orange {
+  background-color: $orange;
+}
+
+.b-black {
+  background-color: $black;
+}
+
+.b-blue {
+  background-color: $blue;
+}
+
+.b-red {
+  background-color: $red;
+}
+
+.b-green {
+  background-color: $green;
+}
+
+.fs-title {
+  font-size: 26px;
+}
+
+.fs-xl {
+  font-size: 20px;
+}
+
+.fs-l {
+  font-size: 18px;
+}
+
+.fs-m {
+  font-size: 16px;
+}
+
+.fs-s {
+  font-size: 14px;
+}
+
+.fs-xs {
+  font-size: 12px;
+}
+
+.fw-normal {
+  font-weight: normal;
+}
+
+.fw-bold {
+  font-weight: bold;
+}
+
+.fw-bolder {
+  font-weight: bolder;
+}
+
+.ws-no-warp {
+  white-space: nowrap;
+}
+
+.td-underline {
+  text-decoration: underline;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.align-left {
+  text-align: left;
+}
